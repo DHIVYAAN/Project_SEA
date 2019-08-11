@@ -152,31 +152,31 @@ public:
     }
 };
 
-int main(int argc, const char * argv[]) {
-    Solution sol;
-    cout<<endl;
-    vector<string> ip= {"46.e3","+.8",".-4","6+1"," "," .","0"," 0.1 ","abc","1 a","2e10"," -90e3   "," 1e","e3"," 6e-1"," 99e2.5 ","53.5e93"," --6 ","-+3","95a54e53"};
-    vector<int> op = {1,1,0,0,0,0,1,1,0,0,1,1,0,0,1,0,1,0,0,0};
-    int b = 1,count =0;
-    for(auto i = 0; i < ip.size();i++)
-    {
-        
-        cout<<endl<<"String : "<<ip[i]<<"->"<<sol.isNumber(ip[i]);
-        if(op[i] != sol.isNumber(ip[i]))
-        {b=0;
-            cout<<" Failed";}
-        else
-            cout<<" Passed";
-        
-        count++;
-    }
-    cout<<endl<<endl<<"##########"<<endl;
-    if(b == 0)
-        cout<<count<<" Test cases failed";
-    else
-        cout<<count<<" Test cases passed";
-    
-    cout<<endl<<"##########"<<endl;
-    cout<<endl;
-    return 0;
-}
+//int main(int argc, const char * argv[]) {
+//    Solution sol;
+//    cout<<endl;
+//    vector<string> ip= {"46.e3","+.8",".-4","6+1"," "," .","0"," 0.1 ","abc","1 a","2e10"," -90e3   "," 1e","e3"," 6e-1"," 99e2.5 ","53.5e93"," --6 ","-+3","95a54e53"};
+//    vector<int> op = {1,1,0,0,0,0,1,1,0,0,1,1,0,0,1,0,1,0,0,0};
+//    int b = 1,count =0;
+//    for(auto i = 0; i < ip.size();i++)
+//    {
+//        
+//        cout<<endl<<"String : "<<ip[i]<<"->"<<sol.isNumber(ip[i]);
+//        if(op[i] != sol.isNumber(ip[i]))
+//        {b=0;
+//            cout<<" Failed";}
+//        else
+//            cout<<" Passed";
+//        
+//        count++;
+//    }
+//    cout<<endl<<endl<<"##########"<<endl;
+//    if(b == 0)
+//        cout<<count<<" Test cases failed";
+//    else
+//        cout<<count<<" Test cases passed";
+//    
+//    cout<<endl<<"##########"<<endl;
+//    cout<<endl;
+//    return 0;
+//}
