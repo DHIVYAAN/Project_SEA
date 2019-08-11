@@ -183,14 +183,108 @@ using namespace std;
 //    }
 //};
 //mehod 3 Binary Search
+//class Solution {
+//public:
+//    string op = "";
+//    string str;
+//    int len;
+//    unordered_set<string> cache;
+//    string longestDupSubstring(string S) {
+//
+//        if(S.length() == 1)
+//            return op;
+//        if(S.length() == 2)
+//        {
+//            if(S[0] == S[1])
+//            {
+//                string s(1,S[0]);
+//                return s;}
+//            else
+//                return op;
+//        }
+//        str = S;
+//        len = S.length();
+//        int left = 0,right = len - 1;
+//        while (left <= right)
+//        {
+//            int mid = (left + right)/2;
+//            string res = binary_calc(mid);
+//            if( res == "")
+//                right = mid-1;
+//            else
+//            {
+//                op = res;
+//                left = mid+1;
+//            }
+//
+//        }
+//
+//        return op;
+//    }
+//    string binary_calc(int lvl)
+//    {
+//
+//        if(lvl == len)
+//            return "";
+//        int i = 0;
+//        while(i <= len-lvl+1)
+//        {
+//            string s1 = str.substr(i,lvl);
+//            auto it2 = cache.find(s1);
+//            if(it2 == cache.end())
+//                cache.insert(s1);
+//            else
+//            {
+//                return s1;
+//            }
+//            i++;
+//        }
+//        cache.clear();
+//        //return binary_calc(lvl+1);
+//        return "";
+//
+//        }
+//
+//};
+
 class Solution {
 public:
     string op = "";
     string str;
-    int len;
-    unordered_set<string> cache;
+    int len,prime = pow(2,63) - 1;
+    unordered_set<char> cache;
+    string find_dup(string str,int sub_l,int factor,vector<int> hash)
+    {
+        unordered_set<int> tracker;
+        int x = 1,h=1;
+        while( x<=sub_l)
+        {
+            h = (h*factor)%prime;
+            x++;}
+        int y = len - sub_l+1;
+        for(auto i = 0; i < (y);i++)
+        {
+            int g;
+            if( i > 0)
+            g = (hash[i+sub_l-1] - hash[i-1]*h)%prime;
+            else
+                g = hash[i+sub_l-1]%prime;
+            
+            if (g < 0)
+                g += prime;
+            if(tracker.find(g) == tracker.end())
+                tracker.insert(g);
+            else
+            {
+                string res = str.substr(i,sub_l);
+                return res;
+            }
+        }
+        return "";
+    }
+    
     string longestDupSubstring(string S) {
-        
+
         if(S.length() == 1)
             return op;
         if(S.length() == 2)
@@ -204,38 +298,42 @@ public:
         }
         str = S;
         len = S.length();
-        op = binary_calc(1);
-        return op;
-    }
-    string binary_calc(int lvl)
-    {
+        vector<int> hash(len);
+        for(auto i = 0; i < S.length(); i++)
+            cache.insert(S[i]);
         
-        if(lvl == len)
-            return "";
-        int i = 0;
-        while(i <= lvl)
+        int factor = cache.size();
+        for(auto i = 0; i < S.length(); i++)
         {
-            string s1 = str.substr(i,len-lvl);
-            auto it2 = cache.find(s1);
-            if(it2 == cache.end())
-                cache.insert(s1);
+            int c = S[i];
+            if( i == 0)
+                hash[i] = c;
+            else
+                hash[i] = factor*hash[i-1] + c;
+        }
+        
+        int left = 0,right = len - 1;
+        while (left <= right)
+        {
+            int mid = (left + right)/2;
+            string res = find_dup(S,mid,factor,hash);
+            if( res == "")
+                right = mid-1;
             else
             {
-                return s1;
+                op = res;
+                left = mid+1;
             }
-            i++;
-        }
-        cache.clear();
-        return binary_calc(lvl+1);
 
         }
-    
+
+        return op;
+    }
 };
-
 int main(int argc, const char * argv[]) {
     Solution sol;
-   string op = sol.longestDupSubstring("moplvidmaagmsiyyrkchbyhivlqwqsjcgtumqscmxrxrvwsnjjvygrelcbjgbpounhuyealllginkitfaiviraqcycjmskrozcdqylbuejrgfnquercvghppljmojfvylcxakyjxnampmakyjbqgwbyokaybcuklkaqzawageypfqhhasetugatdaxpvtevrigynxbqodiyioapgxqkndujeranxgebnpgsukybyowbxhgpkwjfdywfkpufcxzzqiuglkakibbkobonunnzwbjktykebfcbobxdflnyzngheatpcvnhdwkkhnlwnjdnrmjaevqopvinnzgacjkbhvsdsvuuwwhwesgtdzuctshytyfugdqswvxisyxcxoihfgzxnidnfadphwumtgdfmhjkaryjxvfquucltmuoosamjwqqzeleaiplwcbbxjxxvgsnonoivbnmiwbnijkzgoenohqncjqnckxbhpvreasdyvffrolobxzrmrbvwkpdbfvbwwyibydhndmpvqyfmqjwosclwxhgxmwjiksjvsnwupraojuatksjfqkvvfroqxsraskbdbgtppjrnzpfzabmcczlwynwomebvrihxugvjmtrkzdwuafozjcfqacenabmmxzcueyqwvbtslhjeiopgbrbvfbnpmvlnyexopoahgmwplwxnxqzhucdieyvbgtkfmdeocamzenecqlbhqmdfrvpsqyxvkkyfrbyolzvcpcbkdprttijkzcrgciidavsmrczbollxbkytqjwbiupvsorvkorfriajdtsowenhpmdtvamkoqacwwlkqfdzorjtepwlemunyrghwlvjgaxbzawmikfhtaniwviqiaeinbsqidetfsdbgsydkxgwoqyztaqmyeefaihmgrbxzyheoegawthcsyyrpyvnhysynoaikwtvmwathsomddhltxpeuxettpbeftmmyrqclnzwljlpxazrzzdosemwmthcvgwtxtinffopqxbufjwsvhqamxpydcnpekqhsovvqugqhbgweaiheeicmkdtxltkalexbeftuxvwnxmqqjeyourvbdfikqnzdipmmmiltjapovlhkpunxljeutwhenrxyfeufmzipqvergdkwptkilwzdxlydxbjoxjzxwcfmznfqgoaemrrxuwpfkftwejubxkgjlizljoynvidqwxnvhngqakmmehtvykbjwrrrjvwnrteeoxmtygiiygynedvfzwkvmffghuduspyyrnftyvsvjstfohwwyxhmlfmwguxxzgwdzwlnnltpjvnzswhmbzgdwzhvbgkiddhirgljbflgvyksxgnsvztcywpvutqryzdeerlildbzmtsgnebvsjetdnfgikrbsktbrdamfccvcptfaaklmcaqmglneebpdxkvcwwpndrjqnpqgbgihsfeotgggkdbvcdwfjanvafvxsvvhzyncwlmqqsmledzfnxxfyvcmhtjreykqlrfiqlsqzraqgtmocijejneeezqxbtomkwugapwesrinfiaxwxradnuvbyssqkznwwpsbgatlsxfhpcidfgzrc");
-//string op = sol.longestDupSubstring("banana");
+   //string op = sol.longestDupSubstring("moplvidmaagmsiyyrkchbyhivlqwqsjcgtumqscmxrxrvwsnjjvygrelcbjgbpounhuyealllginkitfaiviraqcycjmskrozcdqylbuejrgfnquercvghppljmojfvylcxakyjxnampmakyjbqgwbyokaybcuklkaqzawageypfqhhasetugatdaxpvtevrigynxbqodiyioapgxqkndujeranxgebnpgsukybyowbxhgpkwjfdywfkpufcxzzqiuglkakibbkobonunnzwbjktykebfcbobxdflnyzngheatpcvnhdwkkhnlwnjdnrmjaevqopvinnzgacjkbhvsdsvuuwwhwesgtdzuctshytyfugdqswvxisyxcxoihfgzxnidnfadphwumtgdfmhjkaryjxvfquucltmuoosamjwqqzeleaiplwcbbxjxxvgsnonoivbnmiwbnijkzgoenohqncjqnckxbhpvreasdyvffrolobxzrmrbvwkpdbfvbwwyibydhndmpvqyfmqjwosclwxhgxmwjiksjvsnwupraojuatksjfqkvvfroqxsraskbdbgtppjrnzpfzabmcczlwynwomebvrihxugvjmtrkzdwuafozjcfqacenabmmxzcueyqwvbtslhjeiopgbrbvfbnpmvlnyexopoahgmwplwxnxqzhucdieyvbgtkfmdeocamzenecqlbhqmdfrvpsqyxvkkyfrbyolzvcpcbkdprttijkzcrgciidavsmrczbollxbkytqjwbiupvsorvkorfriajdtsowenhpmdtvamkoqacwwlkqfdzorjtepwlemunyrghwlvjgaxbzawmikfhtaniwviqiaeinbsqidetfsdbgsydkxgwoqyztaqmyeefaihmgrbxzyheoegawthcsyyrpyvnhysynoaikwtvmwathsomddhltxpeuxettpbeftmmyrqclnzwljlpxazrzzdosemwmthcvgwtxtinffopqxbufjwsvhqamxpydcnpekqhsovvqugqhbgweaiheeicmkdtxltkalexbeftuxvwnxmqqjeyourvbdfikqnzdipmmmiltjapovlhkpunxljeutwhenrxyfeufmzipqvergdkwptkilwzdxlydxbjoxjzxwcfmznfqgoaemrrxuwpfkftwejubxkgjlizljoynvidqwxnvhngqakmmehtvykbjwrrrjvwnrteeoxmtygiiygynedvfzwkvmffghuduspyyrnftyvsvjstfohwwyxhmlfmwguxxzgwdzwlnnltpjvnzswhmbzgdwzhvbgkiddhirgljbflgvyksxgnsvztcywpvutqryzdeerlildbzmtsgnebvsjetdnfgikrbsktbrdamfccvcptfaaklmcaqmglneebpdxkvcwwpndrjqnpqgbgihsfeotgggkdbvcdwfjanvafvxsvvhzyncwlmqqsmledzfnxxfyvcmhtjreykqlrfiqlsqzraqgtmocijejneeezqxbtomkwugapwesrinfiaxwxradnuvbyssqkznwwpsbgatlsxfhpcidfgzrc");
+    string op = sol.longestDupSubstring("abcd");
     cout<<endl;
     cout<<"Output most duplicate string : "<<op;
     cout<<endl;

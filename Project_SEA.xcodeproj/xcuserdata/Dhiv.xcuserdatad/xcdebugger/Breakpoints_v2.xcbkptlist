@@ -6,32 +6,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project_SEA/hard_longest_duplicate_string.cpp"
-            timestampString = "587175107.496572"
+            timestampString = "587255393.824717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
-            landmarkName = "main(int argc, const char * argv[])"
-            landmarkType = "9">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Project_SEA/hard_longest_duplicate_string.cpp"
-            timestampString = "587175107.4970649"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
-            landmarkName = "binary_calc(int lvl)"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
+            landmarkName = "longestDupSubstring(string S)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +26,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project_SEA/hard_longest_duplicate_string.cpp"
-            timestampString = "587175107.497511"
+            timestampString = "587255393.825598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "binary_calc(int lvl)"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "find_dup(string str,int sub_l,int factor,vector&lt;int&gt; hash)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Project_SEA/hard_longest_duplicate_string.cpp"
+            timestampString = "587255393.825954"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
+            landmarkName = "find_dup(string str,int sub_l,int factor,vector&lt;int&gt; hash)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Project_SEA/hard_longest_duplicate_string.cpp"
-            timestampString = "587175107.497838"
+            timestampString = "587255393.826229"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
-            landmarkName = "binary_calc(int lvl)"
+            startingLineNumber = "273"
+            endingLineNumber = "273"
+            landmarkName = "find_dup(string str,int sub_l,int factor,vector&lt;int&gt; hash)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
