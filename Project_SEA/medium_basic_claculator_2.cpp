@@ -80,7 +80,7 @@ public:
         res = res + sign*prev;
         return res;
     }
-};ß
+};
 //int main()
 //{
 //    Solution sol;
