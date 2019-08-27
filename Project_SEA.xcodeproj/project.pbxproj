@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		492EC52D22FA827900157DE5 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 492EC52C22FA827900157DE5 /* main.cpp */; };
+		49462DAF23135A6800DE5701 /* moving_average.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49462DAE23135A6800DE5701 /* moving_average.cpp */; };
+		49462DB123136B2700DE5701 /* 149_hard_max_points_on_line.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49462DB023136B2700DE5701 /* 149_hard_max_points_on_line.cpp */; };
 		49C50EF922FBD0ED00410441 /* hard_valid_number.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C50EF822FBD0ED00410441 /* hard_valid_number.cpp */; };
 		49C50F1422FF6C4200410441 /* hard_longest_duplicate_string.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C50F1322FF6C4200410441 /* hard_longest_duplicate_string.cpp */; };
 		49C50F24230A4A9B00410441 /* medium_basic_claculator_2.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 49C50F23230A4A9A00410441 /* medium_basic_claculator_2.cpp */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		492EC52922FA827900157DE5 /* Project_SEA */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Project_SEA; sourceTree = BUILT_PRODUCTS_DIR; };
 		492EC52C22FA827900157DE5 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		49462DAE23135A6800DE5701 /* moving_average.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moving_average.cpp; sourceTree = "<group>"; };
+		49462DB023136B2700DE5701 /* 149_hard_max_points_on_line.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = 149_hard_max_points_on_line.cpp; sourceTree = "<group>"; };
 		49C50EF822FBD0ED00410441 /* hard_valid_number.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hard_valid_number.cpp; sourceTree = "<group>"; };
 		49C50F1322FF6C4200410441 /* hard_longest_duplicate_string.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = hard_longest_duplicate_string.cpp; sourceTree = "<group>"; };
 		49C50F23230A4A9A00410441 /* medium_basic_claculator_2.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = medium_basic_claculator_2.cpp; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 				49C50F23230A4A9A00410441 /* medium_basic_claculator_2.cpp */,
 				49C50F25230B3FF700410441 /* hackkerrank_week4.cpp */,
 				49C50F27230B487500410441 /* hackerrank_week_prob2.cpp */,
+				49462DAE23135A6800DE5701 /* moving_average.cpp */,
+				49462DB023136B2700DE5701 /* 149_hard_max_points_on_line.cpp */,
 			);
 			path = Project_SEA;
 			sourceTree = "<group>";
@@ -133,7 +139,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49462DB123136B2700DE5701 /* 149_hard_max_points_on_line.cpp in Sources */,
 				49C50EF922FBD0ED00410441 /* hard_valid_number.cpp in Sources */,
+				49462DAF23135A6800DE5701 /* moving_average.cpp in Sources */,
 				49C50F1422FF6C4200410441 /* hard_longest_duplicate_string.cpp in Sources */,
 				49C50F24230A4A9B00410441 /* medium_basic_claculator_2.cpp in Sources */,
 				49C50F26230B3FF700410441 /* hackkerrank_week4.cpp in Sources */,
